@@ -1,4 +1,4 @@
-# Blog App Frontend
+# Word_Vibe Frontend
 
 This is the frontend for the Blog App, a React-based application built with Vite. The app allows users to create, view, edit, and delete blog posts. It also includes user authentication and profile management.
 
