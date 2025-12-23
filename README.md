@@ -86,6 +86,7 @@ src/
 ├── pages/          # Full page views (Home, About, Login, Profile)
 ├── routes/         # Centralized routing configuration & Guards
 ├── services/       # API integration modules
+├── tests/          # Unit and Integration tests
 ├── App.jsx         # App Entry point
 ├── main.jsx        # React DOM Entry point
 └── index.css       # Global styles, Variables, and Resets

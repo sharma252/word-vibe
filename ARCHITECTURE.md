@@ -42,11 +42,11 @@ A key architectural feature is the **Resilient Data Layer**.
 
 We employ a **Pyramid Testing Approach** utilizing `Vitest` and `React Testing Library`.
 
-- **Unit Tests (`src/components/*.test.jsx`)**:
+- **Unit Tests (`src/tests/components/*.test.jsx`)**:
     - Focus: Individual components (e.g., `Alert`, `PostCard`).
     - Goal: Verification of rendering logic, conditional styles (success/danger), and event handlers.
     - Example: `Alert.test.jsx` checks if the close button triggers the `onClose` callback.
-- **Integration Tests (`src/*.test.jsx`)**:
+- **Integration Tests (`src/tests/*.test.jsx`)**:
     - Focus: Feature flows (e.g., App Mounting, Authentication checks).
     - Goal: Verifying that components work together. `App.test.jsx` renders the entire app shell to ensure routing and Layout contexts are wired correctly.
     - Mocks: External services (API, Auth) are mocked to ensure tests are deterministic and do not rely on a live backend.

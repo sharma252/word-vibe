@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import Alert from './Alert';
+import Alert from '../../components/Alert';
 
 describe('Alert Component', () => {
     it('renders nothing when no message is provided', () => {

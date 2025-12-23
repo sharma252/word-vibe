@@ -1,9 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import App from './App';
+import App from '../App';
 
 // Mock the API service to prevent actual network calls during tests
-vi.mock('./services/api', () => ({
+vi.mock('../services/api', () => ({
     default: {
         getPosts: vi.fn().mockResolvedValue({ success: true, data: [] }),
         // Add other methods as needed
