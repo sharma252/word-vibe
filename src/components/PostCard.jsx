@@ -13,8 +13,8 @@ const PostCard = ({
   const isOwner = user?._id === post.author?._id;
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-body">
+    <div className="card shadow-sm h-100">
+      <div className="card-body d-flex flex-column">
         <div className="d-flex justify-content-between align-items-start mb-2">
           <h5 className="card-title mb-0">{post.title}</h5>
           {showActions && isOwner && (
@@ -51,7 +51,7 @@ const PostCard = ({
 
         {post.excerpt && <p className="card-text text-muted">{post.excerpt}</p>}
 
-        <p className="card-text">{post.content?.substring(0, 200)}...</p>
+        <p className="card-text mb-auto">{post.content?.substring(0, 200)}...</p>
 
         {post.tags && post.tags.length > 0 && (
           <div className="mb-3">

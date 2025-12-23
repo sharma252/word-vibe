@@ -7,4 +7,10 @@ export default defineConfig({
   build: {
     sourcemap: false,
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.js',
+    css: true,
+  },
 });

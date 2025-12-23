@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav className="navbar navbar-expand-lg navbar-light sticky-top">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
           <PenTool className="me-2" size={24} style={{ display: "inline" }} />
@@ -35,14 +35,21 @@ const Navbar = () => {
                 }
                 to="/"
               >
-                <Home
-                  size={18}
-                  className="me-1"
-                  style={{ display: "inline" }}
-                />
                 Home
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+                to="/about"
+              >
+                About
+              </NavLink>
+            </li>
+
+            {/* render link on the basis of authentication */}
             {isAuthenticated ? (
               <>
                 <li className="nav-item">

@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
       if (storedToken) {
         try {
           const response = await fetch(
-            `${process.env.REACT_APP_API_BASE_URL}/auth/me`,
+            `${import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/v1"}/auth/me`,
             {
               headers: {
                 Authorization: `Bearer ${storedToken}`,
