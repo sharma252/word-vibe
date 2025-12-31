@@ -8,9 +8,9 @@ export default defineConfig({
     sourcemap: false,
   },
   test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/tests/setupTests.js',
+    globals: true,    // Allows you to use 'describe', 'it', 'expect' without importing them in every file
+    environment: 'jsdom',    // The environment where tests run (e.g., 'node' or 'jsdom' for browser-like tests)
+    setupFiles: './src/tests/setupTests.js',    // Path to the setup file that runs before each test
     css: true,
   },
 });

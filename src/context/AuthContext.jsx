@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import apiService from "../services/api";
 
 // Create AuthContext
 const AuthContext = createContext(null);
@@ -19,22 +20,14 @@ export const AuthProvider = ({ children }) => {
 
   // Check authentication status on component mount
   useEffect(() => {
+    console.log("Auth check started");
     const initAuth = async () => {
       const storedToken = localStorage.getItem("token");
       if (storedToken) {
         try {
-          const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/v1"}/auth/me`,
-            {
-              headers: {
-                Authorization: `Bearer ${storedToken}`,
-              },
-            }
-          );
-
-          if (response.ok) {
-            const data = await response.json();
-            setUser(data.data.user || data.data);
+          const response = await apiService.getMe(storedToken);
+          if (response.success) {
+            setUser(response.data.user || response.data);
             setToken(storedToken);
           } else {
             localStorage.removeItem("token");

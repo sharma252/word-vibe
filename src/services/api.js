@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/v1";
 
+// Create axios reusable instance
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -71,6 +72,13 @@ const apiService = {
 
   getMyPosts: async (token) => {
     const response = await api.get("/posts/user/my-posts", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  },
+
+  getMe: async (token) => {
+    const response = await api.get("/auth/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;

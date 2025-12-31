@@ -6,17 +6,10 @@ import App from '../App';
 vi.mock('../services/api', () => ({
     default: {
         getPosts: vi.fn().mockResolvedValue({ success: true, data: [] }),
+        getMe: vi.fn().mockResolvedValue({ success: false, message: 'Unauthenticated' }),
         // Add other methods as needed
     },
 }));
-
-// Mock the global fetch for AuthContext
-global.fetch = vi.fn(() =>
-    Promise.resolve({
-        ok: false, // Simulate unauthenticated state by default
-        json: () => Promise.resolve({}),
-    })
-);
 
 describe.skip('App Component', () => {
     it('renders the application shell and handles authentication state', async () => {
